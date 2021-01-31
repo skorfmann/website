@@ -1,0 +1,8 @@
+{
+  "language": "typescript",
+  "app": "npm run --silent compile && node lib/blog-stack.js",
+  "context": {
+    "excludeStackIdFromLogicalIds": "true",
+    "allowSepCharsInLogicalIds": "true"
+  }
+}

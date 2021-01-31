@@ -1,0 +1,42 @@
+{
+  "name": "app",
+  "version": "0.0.0",
+  "main": "lib/blog-stack.js",
+  "types": "lib/blog-stack.ts",
+  "license": "MPL-2.0",
+  "private": true,
+  "scripts": {
+    "get": "cdktf get",
+    "build": "tsc",
+    "synth": "cdktf synth",
+    "compile": "tsc --pretty",
+    "watch": "tsc -w",
+    "test": "echo ok",
+    "upgrade": "npm i cdktf@latest cdktf-cli@latest",
+    "upgrade:next": "npm i cdktf@next cdktf-cli@next"
+  },
+  "engines": {
+    "node": ">=10.12"
+  },
+  "dependencies": {
+    "@balena/dockerignore": "^1.0.2",
+    "@cdktf/provider-aws": "^1.0.1",
+    "@graphql-tools/utils": "^7.2.5",
+    "@types/aws-lambda": "^8.10.71",
+    "aws-lambda": "^1.0.6",
+    "aws-xray-sdk-core": "^3.2.0",
+    "cdktf": "0.1.0-pre.162",
+    "constructs": "^3.2.105",
+    "graphql": "^15.5.0",
+    "iam-floyd": "^0.121.0",
+    "ignore": "^5.1.8",
+    "minimatch": "^3.0.4",
+    "yup": "^0.32.8"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.21",
+    "cdktf-cli": "0.1.0-pre.162",
+    "esbuild": "0",
+    "typescript": "^4.1.3"
+  }
+}

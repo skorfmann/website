@@ -1,0 +1,25 @@
+{
+  "name": "skorfmann",
+  "private": true,
+  "version": "0.0.0",
+  "description": "website for skorfmann",
+  "scripts": {
+    "build": "npx lerna run build",
+    "deploy": "npx lerna run build"
+  },
+  "author": "Sebastian Korfmann",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "lerna": "3.22.1"
+  },
+  "workspaces": {
+    "packages": [
+      "app",
+      "web"
+    ],
+    "nohoist": [
+      "**/@tailwindcss",
+      "**/@tailwindcss/**"
+    ]
+  }
+}

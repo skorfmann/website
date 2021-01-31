@@ -1,0 +1,37 @@
+extend type Query {
+  getNote(id: ID!): Note
+  listNotes(limit: Int): NotesConnection
+  listNotesByAuthor(limit: Int, authorId: String!): NotesConnection
+}
+
+extend type Mutation {
+  createNote(input: CreateNoteInput!): Note @aws_cognito_user_pools(cognito_groups: ["Admin"])
+}
+
+input CreateNoteInput {
+  title: String!
+  body: String!
+  tags: [String]
+}
+
+type NotesConnection {
+  items: [Note]
+  nextToken: String
+}
+
+type Note @aws_api_key @aws_cognito_user_pools(cognito_groups: ["Admin"]) {
+  id: ID!
+  title: String
+  body: String
+  author: Author
+  tags: [String]
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+type Author {
+  id: ID!
+  username: String
+  name: String
+  notes(limit: Int): NotesConnection
+}

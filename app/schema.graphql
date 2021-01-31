@@ -1,0 +1,51 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+scalar AWSDate
+scalar AWSTime
+scalar AWSDateTime
+scalar AWSTimestamp
+scalar AWSEmail
+scalar AWSJSON
+scalar AWSURL
+scalar AWSPhone
+scalar AWSIPAddress
+type Query {
+  getNote(id: ID!): Note
+  listNotes(limit: Int): NotesConnection
+  listNotesByAuthor(limit: Int, authorId: String!): NotesConnection
+}
+type Mutation {
+  createNote(input: CreateNoteInput!): Note @aws_cognito_user_pools(cognito_groups: ["Admin"])
+}
+input CreateNoteInput {
+  title: String!
+  body: String!
+  tags: [String]
+}
+type NotesConnection {
+  items: [Note]
+  nextToken: String
+}
+type Note @aws_api_key @aws_cognito_user_pools(cognito_groups: ["Admin"]) {
+  id: ID!
+  title: String
+  body: String
+  author: Author
+  tags: [String]
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+type Author {
+  id: ID!
+  username: String
+  name: String
+  notes(limit: Int): NotesConnection
+}
+directive @aws_subscribe(mutations: [String!]!) on FIELD_DEFINITION
+directive @aws_auth(cognito_groups: [String!]!) on FIELD_DEFINITION
+directive @aws_api_key on FIELD_DEFINITION | OBJECT
+directive @aws_iam on FIELD_DEFINITION | OBJECT
+directive @aws_oidc on FIELD_DEFINITION | OBJECT
+directive @aws_cognito_user_pools(cognito_groups: [String!]) on FIELD_DEFINITION | OBJECT

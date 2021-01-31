@@ -1,0 +1,1 @@
+Mostly copied from https://github.com/aws/aws-cdk/tree/93735aa3eb4d7fff2f9f01fa184d8718b5c6c2f3/packages/%40aws-cdk/aws-lambda-nodejs and related sources
