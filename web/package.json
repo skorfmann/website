@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "next start"
   },
+  "license": "MPL-2.0",
   "dependencies": {
     "app": "0.0.0",
     "@aws-amplify/ui-react": "^0.2.27",
