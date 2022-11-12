@@ -1,0 +1,12 @@
+home:
+  welcome: Hello, I am a person that writes stuff.
+
+# Metas plugin https://lume.land/plugins/metas/#description
+metas:
+  site: skorfmann.com
+  description: This is an example of a Lume blog theme
+  twitter: "@skorfmann"
+  lang: en
+
+mergedKeys:
+  metas: object
